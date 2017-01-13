@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 
 
 	if(empty($errors)){ // Kiểm tra nếu không có lổi xãy ra thì chèn vào csdl
-		$q = "INSERT INTO post_categories (users_id, name, position) VALUES (1, '{$cat_post_name}', '$position')";
+		$q = "INSERT INTO post_categories (users_id, name, position, created) VALUES (1, '{$cat_post_name}', '$position', NOW())";
 		$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($dbc));
 
 		if(mysqli_affected_rows($dbc) == 1){

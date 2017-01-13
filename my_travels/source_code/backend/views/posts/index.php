@@ -28,41 +28,23 @@
                       <th>ID</th>
                       <th>title</th>
                       <th>Date</th>
+                      <th>Category Name</th>
                       <th>Status</th>
                       <th>Actions</th>
                   </tr>
-              </thead>   
+              </thead>  
               <tbody>
-                <tr cl>
-                    <td>1</td>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/01/01</td>
-                    <td class="center">
-                        <span class="label label-success">Active</span>
-                    </td>
-                    <td class="center">
-                        <a class="btn btn-success" href="#">
-                            <i class="halflings-icon white zoom-in"></i>  
-                        </a>
-                        <a class="btn btn-info" href="#">
-                            <i class="halflings-icon white edit"></i>  
-                        </a>
-                        <a class="btn btn-danger" href="#">
-                            <i class="halflings-icon white trash"></i> 
-                        </a>
-                    </td>
-                </tr>
+              <?php while ($post = mysqli_fetch_array($r, MYSQLI_ASSOC)) {?>
+              
                 <tr>
-                    <td>1</td>
-                    <td>Dennis Ji</td>
+                    <td><?php echo $post['id']?></td>
+                    <td><?php echo $post['p_name']?></td>
                     <td class="center">2012/01/01</td>
+                    <td class="center"><?php echo $post['cate_name']?></td>
                     <td class="center">
                         <span class="label label-success">Active</span>
                     </td>
                     <td class="center">
-                        <a class="btn btn-success" href="#">
-                            <i class="halflings-icon white zoom-in"></i>  
-                        </a>
                         <a class="btn btn-info" href="#">
                             <i class="halflings-icon white edit"></i>  
                         </a>
@@ -71,8 +53,7 @@
                         </a>
                     </td>
                 </tr>
-                
-                </tr>
+                <?php } ?>
               </tbody>
           </table>            
         </div>

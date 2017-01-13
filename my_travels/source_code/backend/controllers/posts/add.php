@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 	if(empty($_POST['post_name'])) {
 		$errors[] = "errors posts";
 	} else {
-		$posts_name = mysqli_real_escape_string($dbc, strip_tags($_POST['post_name']));
+		$posts_name = escape_strip_tags($dbc, $_POST['post_name']);
 	}
 
 	if(isset($_POST['post_cat']) && filter_var($_POST['post_cat'], FILTER_VALIDATE_INT,  array('min_rande' => 1))) {
@@ -28,9 +28,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 		$posts_content =  mysqli_real_escape_string($dbc, $_POST['post_content']);
 	}
 	// Kiểm tra, xữ lý và khai báo biến $_POST
-
+	
 	if(empty($errors)){ // Kiểm tra nếu không có lổi xãy ra thì chèn vào csdl
-		$q = "INSERT INTO posts (title, content, post_category_id, user_id, position, created) VALUES ('{$posts_name}', '{$posts_content}', {$posts_cat}, 1 , $position, NOW())";
+		$now = strtotime("now");
+
+		$q = "INSERT INTO posts (title, content, post_category_id, user_id, position, created) VALUES ('{$posts_name}', '{$posts_content}', {$posts_cat}, 1 , $position, $now)";
 		$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($dbc));
 
 		if(mysqli_affected_rows($dbc) == 1){

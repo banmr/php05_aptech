@@ -50,8 +50,6 @@
                                             }
                                             echo ">" . $post_cat_op['name'] . "</option>";
 
-                                            $check = $_POST['post_cat'];
-                                            var_dump($check);
                                         }
                                     }
                                 ?>
@@ -63,6 +61,13 @@
                             ?>
                         </div>
                     </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="thumb_post">Thumb post</label>
+                        <div class="controls">
+                            <input name="thumb_post" class="input-file uniform_on" id="fileInput" type="file">+
+                        </div>
+                    </div>    
                     
 
                     <div class="control-group">
@@ -102,7 +107,7 @@
                     </div>
 
                     <div class="form-actions">
-                      <button type="submit" formaction="admin.php?controller=posts&amp;action=add" class="btn btn-primary">Add New Category Post</button>
+                      <button type="submit" formaction="admin.php?controller=posts&amp;action=add" class="btn btn-primary">Add New Post</button>
                       <button type="reset" class="btn">Cancel</button>
                     </div>
                   </fieldset>

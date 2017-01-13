@@ -28,51 +28,36 @@
                       <th>ID</th>
                       <th>title</th>
                       <th>Date</th>
-                      <th>Status</th>
                       <th>Actions</th>
                   </tr>
               </thead>   
               <tbody>
-                <tr cl>
-                    <td>1</td>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/01/01</td>
-                    <td class="center">
-                        <span class="label label-success">Active</span>
-                    </td>
-                    <td class="center">
-                        <a class="btn btn-success" href="#">
-                            <i class="halflings-icon white zoom-in"></i>  
-                        </a>
-                        <a class="btn btn-info" href="#">
-                            <i class="halflings-icon white edit"></i>  
-                        </a>
-                        <a class="btn btn-danger" href="#">
-                            <i class="halflings-icon white trash"></i> 
-                        </a>
-                    </td>
-                </tr>
+                <?php
+                while ($post_cat = mysqli_fetch_array($r, MYSQLI_ASSOC)) { ?>
+                <?php
+                    $date = date('Y-m-d h:i:s', $post_cat['created']);
+                    $datefm = new DateTime($date);
+                ?>
                 <tr>
-                    <td>1</td>
-                    <td>Dennis Ji</td>
-                    <td class="center">2012/01/01</td>
+                    <td><?php echo $post_cat['id']; ?></td>
+                    <td><?php echo $post_cat['name']; ?></td>
                     <td class="center">
-                        <span class="label label-success">Active</span>
+                        <?php                            
+                            echo $datefm->format('d/m/Y');
+                        ?>
                     </td>
                     <td class="center">
-                        <a class="btn btn-success" href="#">
-                            <i class="halflings-icon white zoom-in"></i>  
-                        </a>
                         <a class="btn btn-info" href="#">
                             <i class="halflings-icon white edit"></i>  
                         </a>
-                        <a class="btn btn-danger" href="#">
+                        <a class="btn btn-danger" href="admin.php?controller=product&amp;action=delete&amp;pid=<?php echo $post_cat['id'];?>">
                             <i class="halflings-icon white trash"></i> 
                         </a>
                     </td>
                 </tr>
                 
-                </tr>
+                <?php } ?>
+
               </tbody>
           </table>            
         </div>
