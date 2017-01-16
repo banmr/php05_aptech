@@ -52,9 +52,21 @@
                         <a class="btn btn-info" href="admin.php?controller=post_categories&amp;action=edit&amp;cid=<?php echo $post_cat['id'];?>">
                             <i class="halflings-icon white edit"></i>  
                         </a>
-                        <a onclick="return confirm('are you sure?');" class="btn btn-danger" href="admin.php?controller=post_categories&amp;action=delete&amp;cid=<?php echo $post_cat['id'];?>&amp;name=<?php echo $post_cat['name'];?>">
-                            <i class="halflings-icon white trash"></i> 
-                        </a>
+                        <?php
+                          $cid = $post_cat['id'];
+                          $q1 = "SELECT p.title as p_name, c.name as cat_name FROM posts p, post_categories c WHERE p.post_category_id = c.id AND p.post_category_id = {$cid}";
+                          $r1 = mysqli_query($dbc, $q1) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_error($dbc));
+
+                          if(mysqli_affected_rows($dbc) > 0){ ?>
+                            <a onclick="return confirm('plese delete post of category <?php echo $post_cat['name'];?>');" class="btn btn-danger" href="admin.php?controller=posts">
+                                <i class="halflings-icon white trash"></i> 
+                            </a>
+                          <?php } else { ?>
+                            <a onclick="return confirm('are you sure?');" class="btn btn-danger" href="admin.php?controller=post_categories&amp;action=delete&amp;cid=<?php echo $post_cat['id'];?>&amp;name=<?php echo $post_cat['name'];?>">
+                                <i class="halflings-icon white trash"></i> 
+                            </a>
+                          <?php }
+                        ?>
                     </td>
                 </tr>
                 

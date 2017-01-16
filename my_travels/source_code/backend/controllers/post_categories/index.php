@@ -19,7 +19,7 @@
 		      break;
 	  	}
 	} else {
-	$order_by = 'position';
+		$order_by = 'position';
 	} 
 $q = "SELECT id, name, position, created FROM post_categories ORDER BY {$order_by} ASC";
 $r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($dbc));
