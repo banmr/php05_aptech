@@ -4,7 +4,7 @@
 
 require_once('config/config.php');
 require_once('components/functions.php');
-// require_once('backend/models/model.php');
+require_once('backend/models/model.php');
 
 //xử lý request từ trình duyệt và gọi controller / action tương ứng
 if(isset($_GET['controller'])) $controller = $_GET['controller'];

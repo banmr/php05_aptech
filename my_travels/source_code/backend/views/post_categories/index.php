@@ -34,7 +34,7 @@
               </thead>   
               <tbody>
                 <?php
-                while ($post_cat = mysqli_fetch_array($r, MYSQLI_ASSOC)) { ?>
+                 foreach ($post_categories as $post_cat) {?>
                 <?php
                     $date = date('Y-m-d h:i:s', $post_cat['created']);
                     $datefm = new DateTime($date);
@@ -58,7 +58,7 @@
                           $r1 = mysqli_query($dbc, $q1) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_error($dbc));
 
                           if(mysqli_affected_rows($dbc) > 0){ ?>
-                            <a onclick="return confirm('plese delete post of category <?php echo $post_cat['name'];?>');" class="btn btn-danger" href="admin.php?controller=posts">
+                            <a onclick="return confirm('please delete post of category <?php echo $post_cat['name'];?>');" class="btn btn-danger" href="admin.php?controller=posts">
                                 <i class="halflings-icon white trash"></i> 
                             </a>
                           <?php } else { ?>

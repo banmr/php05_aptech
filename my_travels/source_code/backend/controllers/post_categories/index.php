@@ -20,9 +20,17 @@
 	  	}
 	} else {
 		$order_by = 'position';
-	} 
-$q = "SELECT id, name, position, created FROM post_categories ORDER BY {$order_by} ASC";
-$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($dbc));
+	}
+	 
+$select = "id, name, position, created";
+
+$options = array(
+	'select' => $select,
+    'order_by' => $order_by,
+);
+
+$post_categories = select_all($dbc, 'post_categories', $options);
+
 
 //load view
 require('backend/views/post_categories/index.php');
