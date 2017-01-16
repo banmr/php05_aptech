@@ -1,6 +1,6 @@
 <?php
 /** setting **/
-// define('BASEURL' , 'http://127.0.0.1/php05_aptech/my_travels/source_code/');
+define('BASEURL' , 'http://127.0.0.1/php05_aptech/my_travels/source_code/');
 // define('BASEPATH', dirname(__FILE__) . '/');
 
 /** kết nối MySQL **/

@@ -5,7 +5,7 @@
  */
 function get_all_record($db, $table, $select = '*') {
     //truy vấn
-    $q = "SELECT $select FROM $table";
+    $q = "SELECT `$select` FROM `$table`";
     $r = mysqli_query($db, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($db));
 
      //dữ liệu trả về la 1 mang array name
