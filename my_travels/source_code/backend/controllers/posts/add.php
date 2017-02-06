@@ -80,5 +80,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 } // END main if submit condition
 
 
+
 //load view
 require('backend/views/posts/add.php');
