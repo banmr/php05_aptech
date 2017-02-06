@@ -26,10 +26,10 @@
               <thead>
                   <tr>
                       <th>ID</th>
+                      <th>Thumb</th>
                       <th>title</th>
                       <th>Date</th>
                       <th>Category Name</th>
-                      <th>Status</th>
                       <th>Actions</th>
                   </tr>
               </thead>  
@@ -38,12 +38,10 @@
               
                 <tr>
                     <td><?php echo $post['id']?></td>
+                    <td><img width="50" src="<?php echo $post['image']?>" alt="<?php echo $post['p_name']?>"></td>
                     <td><?php echo $post['p_name']?></td>
                     <td class="center">2012/01/01</td>
                     <td class="center"><?php echo $post['cate_name']?></td>
-                    <td class="center">
-                        <span class="label label-success">Active</span>
-                    </td>
                     <td class="center">
                         <a class="btn btn-info" href="#">
                             <i class="halflings-icon white edit"></i>  

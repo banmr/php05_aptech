@@ -7,45 +7,29 @@
 		    <div class="row"><!-- second row -->		    	
 		    	<div class="col-md-9 main-content">
 		    		<div class="row">
-		    			<div class="col-md-12"><!-- first column -->
-			                <div class="widget-item row">
-			                	<div class="sample-thumb col-md-4">
-			                        <img src="webroot/images/event_3.jpg" alt="New Event" title="New Event">
-			                    </div> <!-- /.sample-thumb -->
-			                    <div class="col-md-8 main-post">			                    
-				                    <h4 class="consult-title"><a href="#">Donec auctor iaculis libero ut ullamcorper</a></h4>
-				                    <p>Suspendisse id felis ac orci dignissim efficitur non eget elit. Maecenas lacinia sodales aliquet. Maecenas consequat orci et neque convallis volutpat.</p>
-			                    </div>
-			                </div> <!-- /.widget-item -->
-			            </div> <!-- /.col-md-4 -->
+						<?php  while ($post = mysqli_fetch_array($r1, MYSQLI_ASSOC)) {?>
+							<div class="col-md-12"><!-- first column -->
+				                <div class="widget-item row">
+				                	<div class="sample-thumb col-md-4">
+				                        <img src="<?php echo $post['image']; ?>" alt="<?php echo $post['title']; ?>" title="<?php echo $post['title']; ?>">
+				                    </div> <!-- /.sample-thumb -->
+				                    <div class="col-md-8 main-post">			                    
+					                    <h4 class="consult-title"><a href="#"><?php echo $post['title']; ?></a></h4>
+					                    <p><?php echo _substr(strip_tags( $post['content'] ), 350); ?></p>
+				                    </div>
+				                </div> <!-- /.widget-item -->
+				            </div> <!-- /.col-md-4 -->
+		    			<?php } ?>
+		    			
 			            
-			            <div class="col-md-12"><!-- first column -->
-			                <div class="widget-item row">
-			                	<div class="sample-thumb col-md-4">
-			                        <img src="webroot/images/event_3.jpg" alt="New Event" title="New Event">
-			                    </div> <!-- /.sample-thumb -->
-			                    <div class="col-md-8 main-post">			                    
-				                    <h4 class="consult-title"><a href="#">Donec auctor iaculis libero ut ullamcorper</a></h4>
-				                    <p>Suspendisse id felis ac orci dignissim efficitur non eget elit. Maecenas lacinia sodales aliquet. Maecenas consequat orci et neque convallis volutpat.</p>
-			                    </div>
-			                </div> <!-- /.widget-item -->
-			            </div> <!-- /.col-md-4 -->
-
-			            <div class="col-md-12"><!-- first column -->
-			                <div class="widget-item row">
-			                	<div class="sample-thumb col-md-4">
-			                        <img src="webroot/images/event_3.jpg" alt="New Event" title="New Event">
-			                    </div> <!-- /.sample-thumb -->
-			                    <div class="col-md-8 main-post">			                    
-				                    <h4 class="consult-title"><a href="#">Donec auctor iaculis libero ut ullamcorper</a></h4>
-				                    <p>Suspendisse id felis ac orci dignissim efficitur non eget elit. Maecenas lacinia sodales aliquet. Maecenas consequat orci et neque convallis volutpat.</p>
-			                    </div>
-			                </div> <!-- /.widget-item -->
-			            </div> <!-- /.col-md-4 -->
 			        </div>
 		    	</div>	
 		    	<div class="col-md-3 sidebar">
-		    		<div class="row">
+    				<div class="title">
+                        <h4>Category</h4>
+                    </div>
+                    
+		    		<div class="main-sidebar">
 		    			<ul>
 		    			<?php 
 		    				while ($post_cat = mysqli_fetch_array($r, MYSQLI_ASSOC)) {

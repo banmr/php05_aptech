@@ -27,12 +27,44 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 	} else {
 		$posts_content =  mysqli_real_escape_string($dbc, $_POST['post_content']);
 	}
+
+    if($_FILES['thumb_post']['name'] != NULL){ // Đã chọn file
+        // Tiến hành code upload file
+        if($_FILES['thumb_post']['type'] == "image/png"
+        || $_FILES['thumb_post']['type'] == "image/jpeg"
+        || $_FILES['thumb_post']['type'] == "image/gif"){
+        // là file ảnh
+        // Tiến hành code upload    
+            if($_FILES['thumb_post']['size'] > 1048576){
+                $errors[] =  "File không được lớn hơn 1mb";
+            }else{
+                // file hợp lệ, tiến hành upload
+                $path = "webroot/upload/"; // file sẽ lưu vào thư mục upload
+                $target_file = $path . basename($_FILES["thumb_post"]["name"]);
+
+                $tmp_name = $_FILES['thumb_post']['tmp_name'];
+                $name = $_FILES['thumb_post']['name'];
+                $type = $_FILES['thumb_post']['type']; 
+                $size = $_FILES['thumb_post']['size']; 
+                // Upload file
+                move_uploaded_file($tmp_name,$path.$name);
+
+           }
+        }else{
+           // không phải file ảnh
+           $errors[] =  "Kiểu file không hợp lệ";
+        }
+   }else{
+        echo "Vui lòng chọn file";
+   }
+
+
 	// Kiểm tra, xữ lý và khai báo biến $_POST
 	
 	if(empty($errors)){ // Kiểm tra nếu không có lổi xãy ra thì chèn vào csdl
 		$now = strtotime("now");
 
-		$q = "INSERT INTO posts (title, content, post_category_id, user_id, position, created) VALUES ('{$posts_name}', '{$posts_content}', {$posts_cat}, 1 , $position, $now)";
+		$q = "INSERT INTO posts (title, content, image, post_category_id, user_id, position, created) VALUES ('{$posts_name}', '{$posts_content}', '$target_file', {$posts_cat}, 1 , $position, $now)";
 		$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($dbc));
 
 		if(mysqli_affected_rows($dbc) == 1){

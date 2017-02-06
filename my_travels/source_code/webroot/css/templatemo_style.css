@@ -934,7 +934,22 @@ div.contact-form input.mainBtn {
 .sidebar li{
     margin-bottom: 15px;
 }
-
+.sidebar .title {
+    background-color: #9ed034;
+    font-size: 22px;
+    font-weight: 600;
+    height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.sidebar .title h4 {
+    color: #fff;
+    line-height: 50px;
+}
+.main-sidebar{
+    padding-left: 20px;
+}
 @media screen and (min-width: 240px) {
     .footer-logo {
         display: none;

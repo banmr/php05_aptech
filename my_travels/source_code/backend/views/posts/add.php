@@ -67,6 +67,14 @@
                         <div class="controls">
                             <input name="thumb_post" class="input-file uniform_on" id="fileInput" type="file">+
                         </div>
+                        <?php 
+                            if(isset($errors) && in_array('File không được lớn hơn 1mb', $errors)) {
+                               echo "<span class='error control-group'><span class='help-inline'><strong>Error!</strong> File không được lớn hơn 1mb</span><span>" ;
+                            }
+                            if(isset($errors) && in_array('Kiểu file không hợp lệ', $errors)) {
+                               echo "<span class='error control-group'><span class='help-inline'><strong>Error!</strong> Kiểu file không hợp lệ</span><span>" ;
+                            }
+                        ?>
                     </div>    
                     
 
