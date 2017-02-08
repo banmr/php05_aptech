@@ -5,7 +5,12 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Travel Responsive Web Template</title>
+        <title>
+            <?php
+                if(isset($title_page)) echo $title_page;
+                else echo 'Travel Responsive Web Template';
+            ?>
+        </title>
         <meta name="description" content="">
 <!-- 
 Travel Template
@@ -34,7 +39,7 @@ http://www.templatemo.com/tm-409-travel
                     <div class="row">
                         <div class="col-md-4 col-sm-6 col-xs-10">
                             <div class="logo">
-                                <a href="#">
+                                <a href="index.php">
                                     <img src="webroot/images/logo.png" alt="travel html5 template" title="travel html5 template">
                                 </a>
                             </div> <!-- /.logo -->
@@ -42,8 +47,13 @@ http://www.templatemo.com/tm-409-travel
                         <div class="col-md-8 col-sm-6 col-xs-2">
                             <div class="main-menu">
                                 <ul class="visible-lg visible-md">
-                                    <li class="active"><a href="index.php?controller=index">Home</a></li>
-                                    <li><a href="index.php?controller=blog">Blog</a></li>
+                                    <li class="<?php 
+                                        if(isset($_GET['controller']) && $_GET['controller'] == 'index' ) echo 'active';
+                                        elseif(!isset($_GET['controller'])) echo 'active';
+                                    ?>"><a href="index.php?controller=index">Home</a></li>
+                                    <li class="<?php 
+                                        if(isset($_GET['controller']) && $_GET['controller'] == 'blog' || $_GET['controller'] == 'post_categories' ) echo 'active';
+                                    ?>"><a href="index.php?controller=blog">Blog</a></li>
                                     <li><a href="events.html">Events</a></li>
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="contact.html">Contact</a></li>

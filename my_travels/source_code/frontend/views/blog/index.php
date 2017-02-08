@@ -23,7 +23,7 @@
 				                    </div> <!-- /.sample-thumb -->
 				                    <div class="col-md-8 main-post">			                    
 					                    <h4 class="consult-title"><a href="#"><?php echo $post['title']; ?></a></h4>
-					                    <p><?php echo _substr(strip_tags( $post['content'] ), 350); ?></p>
+					                    <p><?php echo _substr(strip_tags( $post['content'] ), 350); ?> <a href="#">Red more</a></p>
 				                    </div>
 				                </div> <!-- /.widget-item -->
 				            </div> <!-- /.col-md-4 -->

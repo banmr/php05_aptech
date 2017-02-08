@@ -52,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="index.html"><span>Cpanel</span></a>
+                <a class="brand" href="admin.php"><span>Cpanel</span></a>
                                 
                 <!-- start: Header Menu -->
                 <div class="nav-no-collapse header-nav">

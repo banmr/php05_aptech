@@ -11,7 +11,7 @@
         if(mysqli_num_rows($r) > 0){
          
 			while ($post_cat = mysqli_fetch_array($r, MYSQLI_ASSOC)) {   
-				echo "<li><a href='index.php?controller=post_categories&amp;cid={$post_cat['id']}'>" . $post_cat['name'] . "</a></li>";
+				echo "<li class='#'><a href='index.php?controller=post_categories&amp;cid={$post_cat['id']}'>" . $post_cat['name'] . "</a></li>";
 			}
         }
 		?>

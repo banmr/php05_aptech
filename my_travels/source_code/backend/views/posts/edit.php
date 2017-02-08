@@ -90,9 +90,6 @@
                             if(isset($errors) && in_array('File type not valid', $errors)) {
                                echo "<span class='error control-group'><span class='help-inline'><strong>Error!</strong> File type not valid</span><span>" ;
                             }
-                            if(isset($errors) && in_array('Please select the file', $errors)) {
-                               echo "<span class='error control-group'><span class='help-inline'><strong>Error!</strong> Please select the file</span><span>" ;
-                            }
                         ?>
                     </div>    
                     

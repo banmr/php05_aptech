@@ -53,6 +53,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
                 $name = $_FILES['thumb_post']['name'];
                 $type = $_FILES['thumb_post']['type']; 
                 $size = $_FILES['thumb_post']['size']; 
+                // resize file
+                
                 // Upload file
                 move_uploaded_file($tmp_name,$path.$name);
 
@@ -76,7 +78,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 		} else {
 			$messages = "<div class='alert alert-error'><strong>Error!</strong> could not edit to the database due to a system error.</div>" ;
 		}
-	} else {
+	} elseif(isset($errors) && in_array('Please select the file', $errors)){
+        
+        $q = "UPDATE posts SET title = '{$posts_name}', post_category_id = '{$posts_cat}', position = {$position}, content = '{$posts_content}', modified = NOW() WHERE id = {$post_id} LIMIT 1";
+		$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($dbc));
+        
+		if(mysqli_affected_rows($dbc) == 1){
+			$messages = "<div class='alert alert-success'><strong>Well done!</strong> The post edit successfully.</div>" ;
+		} else {
+			$messages = "<div class='alert alert-error'><strong>Error!</strong> could not edit to the database due to a system error.</div>" ;
+		}
+	}
+     else {
 		$messages =  "<div class='alert alert-error'><strong>Error!</strong> please fill all the required fields.</div>" ;
 
 	}
