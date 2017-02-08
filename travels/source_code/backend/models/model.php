@@ -5,6 +5,7 @@
  * $data là mảng chứa dữ liệu.
  */
 function save($table, $data = array()) {
+
     //xử lý dữ liệu $data
     $values = array();
     foreach ($data as $key => $value) {
@@ -20,10 +21,13 @@ function save($table, $data = array()) {
         $sql = "INSERT INTO `$table` SET " . implode(',', $values);
     }
 
+
     mysql_query($sql) or die(mysql_error());
 
     $id = ($id>0) ? $id : mysql_insert_id();
+
     return $id;
+
 }
 
 /**

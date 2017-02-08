@@ -7,27 +7,26 @@
 		    <div class="row"><!-- second row -->		    	
 		    	<div class="col-md-9 main-content">
 		    		<div class="row">
-						<?php  while ($post = mysqli_fetch_array($r1, MYSQLI_ASSOC)) {
-                            if(!empty($post['image'])){
-    							$img_file = explode("/", $post['image']);
-                      			$img_name = explode(".", $img_file['2']);
-                            }
+						<?php  
+                        if(mysqli_num_rows($r) > 0){
+                            while ($post_categories = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+
 						?>
 
 							<div class="col-md-12"><!-- first column -->
 				                <div class="widget-item row">
 				                	<div class="sample-thumb col-md-4">
-                                    <?php if(!empty($post['image'])){ ?>
-				                        <img src="<?php echo $post['image']; ?>" alt="<?php echo $img_name[0]; ?>" title="<?php echo $post['title']; ?>">
-                                    <?php } ?>
+				                        <img src="<?php echo $post_categories['image']; ?>" alt="<?php echo $img_name[0]; ?>" title="<?php echo $post_categories['name']; ?>">
 				                    </div> <!-- /.sample-thumb -->
 				                    <div class="col-md-8 main-post">			                    
-					                    <h4 class="consult-title"><a href="#"><?php echo $post['title']; ?></a></h4>
-					                    <p><?php echo _substr(strip_tags( $post['content'] ), 350); ?></p>
+					                    <h4 class="consult-title"><a href="#"><?php echo $post_categories['title']; ?></a></h4>
+					                    <p><?php echo _substr(strip_tags( $post_categories['content'] ), 350); ?></p>
 				                    </div>
 				                </div> <!-- /.widget-item -->
 				            </div> <!-- /.col-md-4 -->
-		    			<?php } ?>
+		    			<?php } } else { ?>
+                            <p><b>No posts in this category</b></p>
+                        <?php } ?>
 		    			
 			            
 			        </div>

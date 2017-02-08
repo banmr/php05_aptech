@@ -30,23 +30,26 @@
                       <th>title</th>
                       <th>Date</th>
                       <th>Category Name</th>
+                      <th>position</th>
                       <th>Actions</th>
                   </tr>
               </thead>  
               <tbody>
-              <?php while ($post = mysqli_fetch_array($r, MYSQLI_ASSOC)) {?>
-              
+              <?php while ($post = mysqli_fetch_array($r, MYSQLI_ASSOC)) { 
+              ?>
+
                 <tr>
-                    <td><?php echo $post['id']?></td>
-                    <td><img width="50" src="<?php echo $post['image']?>" alt="<?php echo $post['p_name']?>"></td>
+                    <td><?php echo $post['posts_id']?></td>
+                    <td><img width="50px" src="<?php echo $post['image']?>" alt="<?php echo $post['p_name']?>"></td>
                     <td><?php echo $post['p_name']?></td>
                     <td class="center">2012/01/01</td>
                     <td class="center"><?php echo $post['cate_name']?></td>
+                    <td class="center"><?php echo $post['position']?></td>
                     <td class="center">
-                        <a class="btn btn-info" href="#">
+                        <a class="btn btn-info" href="admin.php?controller=posts&amp;action=edit&amp;post_id=<?php echo $post['posts_id'];?>">
                             <i class="halflings-icon white edit"></i>  
                         </a>
-                        <a class="btn btn-danger" href="#">
+                        <a onclick="return confirm('are you sure? delete <?php echo $post['p_name'];?>');" class="btn btn-danger" href="admin.php?controller=posts&amp;action=delete&amp;post_id=<?php echo $post['posts_id'];?>&amp;name=<?php echo $post['p_name'];?>">
                             <i class="halflings-icon white trash"></i> 
                         </a>
                     </td>
