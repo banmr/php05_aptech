@@ -13,11 +13,11 @@ else $controller = 'index';
 if(isset($_GET['action'])) $action = $_GET['action'];
 else $action = 'index';
 
-// //kiểm tra đăng nhập
-// if(!isset($_SESSION['user'])) {
-//     $controller = 'index';
-//     $action = 'login';
-// }
+//kiểm tra đăng nhập
+if(!isset($_SESSION['name'])) {
+    $controller = 'index';
+    $action = 'login';
+}
 
 $file = 'backend/controllers/'.$controller.'/'.$action.'.php';
 if (file_exists($file)) {
