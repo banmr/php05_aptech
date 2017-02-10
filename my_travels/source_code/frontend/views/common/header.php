@@ -52,11 +52,12 @@ http://www.templatemo.com/tm-409-travel
                                         elseif(!isset($_GET['controller'])) echo 'active';
                                     ?>"><a href="index.php?controller=index">Home</a></li>
                                     <li class="<?php 
-                                        if(isset($_GET['controller']) && $_GET['controller'] == 'blog' || $_GET['controller'] == 'post_categories' ) echo 'active';
-                                    ?>"><a href="index.php?controller=blog">Blog</a></li>
-                                    <li><a href="events.html">Events</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                        if(isset($_GET['controller']) && $_GET['controller'] == 'posts' || $_GET['controller'] == 'post_categories' ) echo 'active';
+                                    ?>"><a href="index.php?controller=posts">Blog</a></li>
+                                    
+                                    <li class="
+                                        <?php if(isset($_GET['controller']) && $_GET['controller'] == 'contact' ) echo 'active'; ?>
+                                    "><a href="index.php?controller=contact">Contact</a></li>
                                 </ul>
                                 <a href="#" class="toggle-menu visible-sm visible-xs">
                                     <i class="fa fa-bars"></i>

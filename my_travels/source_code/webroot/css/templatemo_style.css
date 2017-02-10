@@ -950,6 +950,42 @@ div.contact-form input.mainBtn {
 .main-sidebar{
     padding-left: 20px;
 }
+#contactform input,
+#contactform textarea{
+    margin-bottom: 0;
+}
+#contactform p{
+    margin-bottom: 20px;
+}
+#contactform .help-inline {
+    color: #b94a48;
+}
+
+.alert.alert-error {
+    background-color: #fdeaea !important;
+    border: 1px solid #f27b81 !important;
+    color: #ca6f74 !important;
+}
+.alert {
+    background-color: #fffee1 !important;
+    border: 1px solid #f5c056 !important;
+    color: #daac50 !important;
+}
+.alert {
+    border-radius: 0;
+    box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1);
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 15px;
+    padding: 14px 40px 14px 18px;
+    position: relative;
+}
+.alert-danger, .alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
 @media screen and (min-width: 240px) {
     .footer-logo {
         display: none;

@@ -35,7 +35,9 @@
                   </tr>
               </thead>  
               <tbody>
-              <?php while ($post = mysqli_fetch_array($r, MYSQLI_ASSOC)) { 
+              <?php
+                if (mysqli_num_rows($r) > 0) { 
+                while ($post = mysqli_fetch_array($r, MYSQLI_ASSOC)) { 
               ?>
 
                 <tr>
@@ -54,7 +56,11 @@
                         </a>
                     </td>
                 </tr>
-                <?php } ?>
+                <?php } } else{ ?>
+                    <tr>
+                        <td>no post</td>
+                    </tr>
+                <?php } ?> 
               </tbody>
           </table>            
         </div>

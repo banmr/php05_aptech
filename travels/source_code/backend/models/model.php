@@ -5,6 +5,8 @@
  * $data là mảng chứa dữ liệu.
  */
 function save($table, $data = array()) {
+    
+    
 
     //xử lý dữ liệu $data
     $values = array();
@@ -25,6 +27,8 @@ function save($table, $data = array()) {
     mysql_query($sql) or die(mysql_error());
 
     $id = ($id>0) ? $id : mysql_insert_id();
+    
+    var_dump($data);
 
     return $id;
 

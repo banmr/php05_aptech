@@ -1,4 +1,16 @@
 <?php
+/**
+ * xũ lý giá trị tồn tại $_SERVER , xữ lý form. 
+ */
+function get_server_post($method = 'POST') {
+
+    if($_SERVER['REQUEST_METHOD'] == $method ) {
+        $get_server_post = $method;
+        return $get_server_post;
+    } else {
+        return NULL;
+    }
+}
 
 /**
  * ham select database tra ve 1 mang array

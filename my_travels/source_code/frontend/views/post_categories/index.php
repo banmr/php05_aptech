@@ -10,17 +10,21 @@
 						<?php  
                         if(mysqli_num_rows($r) > 0){
                             while ($post_categories = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+                            if(!empty($post_categories['image'])){
+    							$img_file = explode("/", $post_categories['image']);
+                      			$img_name = explode(".", $img_file['2']);
+                            }
 
 						?>
 
 							<div class="col-md-12"><!-- first column -->
 				                <div class="widget-item row">
 				                	<div class="sample-thumb col-md-4">
-				                        <img src="<?php echo $post_categories['image']; ?>" alt="<?php echo $img_name[0]; ?>" title="<?php echo $post_categories['name']; ?>">
+				                        <img src="<?php echo $post_categories['image']; ?>" alt="<?php echo $img_name[0]; ?>" title="<?php echo $post_categories['title']; ?>">
 				                    </div> <!-- /.sample-thumb -->
 				                    <div class="col-md-8 main-post">			                    
-					                    <h4 class="consult-title"><a href="#"><?php echo $post_categories['title']; ?></a></h4>
-					                    <p><?php echo _substr(strip_tags( $post_categories['content'] ), 350); ?></p>
+					                    <h4 class="consult-title"><a href="index.php?controller=posts&amp;action=view&amp;post_id=<?php echo $post_categories['id'] ?>"><?php echo $post_categories['title']; ?></a></h4>
+					                    <p><?php echo _substr(strip_tags( $post_categories['content'] ), 350); ?> <a href="index.php?controller=posts&amp;action=view&amp;post_id=<?php echo $post_categories['id'] ?>">Red more</a></p>
 				                    </div>
 				                </div> <!-- /.widget-item -->
 				            </div> <!-- /.col-md-4 -->

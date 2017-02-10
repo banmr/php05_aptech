@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
            $errors[] =  "File type not valid";
         }
    }else{
-        echo "Please select the file";
+        $errors[] = "Please select the file";
    }
 
 

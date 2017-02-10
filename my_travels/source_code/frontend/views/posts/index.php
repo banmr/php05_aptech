@@ -7,7 +7,9 @@
 		    <div class="row"><!-- second row -->		    	
 		    	<div class="col-md-9 main-content">
 		    		<div class="row">
-						<?php  while ($post = mysqli_fetch_array($r1, MYSQLI_ASSOC)) {
+						<?php  
+                        if(mysqli_num_rows($r1) > 0){
+                        while ($post = mysqli_fetch_array($r1, MYSQLI_ASSOC)) {
                             if(!empty($post['image'])){
     							$img_file = explode("/", $post['image']);
                       			$img_name = explode(".", $img_file['2']);
@@ -22,12 +24,14 @@
                                     <?php } ?>
 				                    </div> <!-- /.sample-thumb -->
 				                    <div class="col-md-8 main-post">			                    
-					                    <h4 class="consult-title"><a href="#"><?php echo $post['title']; ?></a></h4>
-					                    <p><?php echo _substr(strip_tags( $post['content'] ), 350); ?> <a href="#">Red more</a></p>
+					                    <h4 class="consult-title"><a href="index.php?controller=posts&amp;action=view&amp;post_id=<?php echo $post['id'] ?>"><?php echo $post['title']; ?></a></h4>
+					                    <p><?php echo _substr(strip_tags( $post['content'] ), 350); ?> <a href="index.php?controller=posts&amp;action=view&amp;post_id=<?php echo $post['id'] ?>">Red more</a></p>
 				                    </div>
 				                </div> <!-- /.widget-item -->
 				            </div> <!-- /.col-md-4 -->
-		    			<?php } ?>
+		    			<?php } echo pagination ('posts', $options); } else { ?>
+                            <h3>not show post</h3>
+                        <?php } ?>
 		    			
 			            
 			        </div>

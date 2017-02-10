@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 	if(empty($_POST['post_categories'])) {
 		$errors[] = "errors post category";
 	} else {
-		$cat_post_name = mysqli_real_escape_string($dbc, strip_tags($_POST['post_categories']));
+		$cat_post_name = escape_strip_tags($dbc, $_POST['post_categories']);
 	}
 	if(isset($_POST['position']) && filter_var($_POST['position'], FILTER_VALIDATE_INT,  array('min_rande' => 1))) {
 		$position = $_POST['position'];
