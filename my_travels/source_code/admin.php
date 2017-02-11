@@ -19,6 +19,13 @@ if(!isset($_SESSION['name'])) {
     $action = 'login';
 }
 
+//gan' bien admin
+$admin = array();
+if(isset($_SESSION['name'])) {
+	$admin['name'] = $_SESSION['name'];
+}
+
+
 $file = 'backend/controllers/'.$controller.'/'.$action.'.php';
 if (file_exists($file)) {
     require($file);

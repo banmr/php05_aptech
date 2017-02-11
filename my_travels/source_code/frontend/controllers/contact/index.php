@@ -19,17 +19,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xu lý giá tr? t?n t?i, x? lý form
         $errors[] = 'errors message';
     }
     
-    $email = "FORM: " . $clean['email'];
+    
     
     if(empty($errors)){
+        $to         = "huynhvanban.08i2@gmail.com";
+        $subject    = 'contact form Travel Web';
+        $header     = "huynhvanban.08i2@gmail.com";
         $body = "Name: {$clean['name']} \n\n Message: \n " . escape_strip_tags($dbc, $clean['message']);
         $body = wordwrap($body, 70);
-        $mail_contact = mail('huynhvanban.08i2@gmail.com', 'contact form Travel Web', $body, $email);
+
+        $mail_contact = mail($to, $subject, $body, $header);
         if($mail_contact){
             $messages = "<div class='alert alert-success'><strong>Well done!</strong> Thank you for contacting me. i will get back to you ASAP.</div>";
         } else {
             $messages = "<div class='alert alert-error'><strong>Error!</strong> Sorry, your email cound not be sent.</div>";
         }
+
+        var_dump($mail_contact);
     } else {
         $messages = "<div class='alert alert-error'><strong>Error!</strong> please fill all the required fields.</div>";
     }

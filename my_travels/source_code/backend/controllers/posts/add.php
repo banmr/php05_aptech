@@ -28,6 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 		$posts_content =  mysqli_real_escape_string($dbc, $_POST['post_content']);
 	}
 
+
     if($_FILES['thumb_post']['name'] != NULL){ // Đã chọn file
         // Tiến hành code upload file
         if($_FILES['thumb_post']['type'] == "image/png"

@@ -51,6 +51,7 @@
 					
 			<div class="row-fluid">
 				<div class="login-box">
+
 					<?php if(!empty($message)) echo $message;  ?>
 					<h2>Login to your admin</h2>					
 					<form class="form-horizontal" action="admin.php?controller=index" method="post">
@@ -58,7 +59,7 @@
 							
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input value="<?php if(isset($username)) {echo escape_strip_tags($dbc, $username);} ?>" class="input-large span10" name="username" id="username" type="text" placeholder="type username"/>								
+								<input value="<?php if(isset($username)) {echo escape_strip_tags($dbc, $username);} ?>" class="input-large span10" name="username" id="username" type="text"/>								
 							</div>
 
 							<div class="clearfix"></div>
