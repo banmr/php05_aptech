@@ -4,7 +4,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Login | Cpanel</title>
+	<title>Forgot Password | Cpanel</title>
 	<meta name="description" content="login">
 	<meta name="author" content="tralvel">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -48,46 +48,30 @@
 <body>
 		<div class="container-fluid-full">
 		<div class="row-fluid">
-					
 			<div class="row-fluid">
 				<div class="login-box">
-
-					<?php //if(!empty($message)) echo $message;
-					if(!empty($message)) {
-						foreach ($message as $m) {
-							 echo $m;
-						}
-					}
-					?>
-					<h2>Login to your admin</h2>					
-					<form class="form-horizontal" action="admin.php?controller=index" method="post">
+					<?php if(!empty($message)){echo $message;}  ?>
+					<h2>Forgot Password to your admin</h2>					
+					<form class="form-horizontal" action="admin.php?controller=index&action=forgot" method="post">
 						<fieldset>
-							
-							<div class="input-prepend" title="Username">
-								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input value="<?php if(isset($username)) {echo escape_strip_tags($dbc, $username);} ?>" class="input-large span10" name="username" id="username" type="text"/>			
+							<div class="input-prepend" title="Username">								
+								<span class="add-on"><i class="icon-envelope"></i></span>
+								<input value="<?php if(isset($f_email)) {echo escape_strip_tags($dbc, $f_email);} ?>" class="input-large span10" name="email" id="email" type="email"/>							
 							</div>
-							<div class="clearfix"></div>
-
-							<div class="input-prepend" title="Password">
-								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="password" id="password" type="password" placeholder="type password"/>
-							</div>
-
-							<div class="clearfix"></div>
-							
-							<label class="remember" for="remember"><input type="checkbox" id="remember" />Remember me</label>
-
+								<?php if(isset($errors) && in_array('email', $errors)) {
+                                   echo "<span class='error control-group'><span class='help-inline'><strong>Error!</strong> Please fill in the email.</span><span>" ;
+                                }?>
+                                <?php if(isset($errors) && in_array('email could not', $errors)) {
+                                   echo "<span class='error control-group'><span class='help-inline'><strong>Error!</strong> The email could not be found.</span><span>" ;
+                                }?>
 							<div class="button-login">	
-								<button formaction="admin.php?controller=index" type="submit" class="btn btn-primary">Login</button>
+								<button formaction="admin.php?controller=index&action=forgot" type="submit" class="btn btn-primary">Forgot Password</button>
 							</div>
 							<div class="clearfix"></div>
-					</form>
-					<hr>
-					<h3>Forgot Password?</h3>
+					</form>	
 					<p>
-						No problem, <a href="admin.php?controller=index&action=forgot">click here</a> to get a new password.
-					</p>	
+						<a href="admin.php?controller=index&action=login">click here</a> Login.
+					</p>
 				</div><!--/span-->
 			</div><!--/row-->
 			

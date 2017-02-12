@@ -5,7 +5,8 @@
             <li><a href="admin.php"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
             <li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
             <li><a href="admin.php?controller=posts"><i class="icon-edit"></i><span class="hidden-tablet"> Post</span></a></li>
-            <li><a href="admin.php?controller=post_categories"><i class="icon-edit"></i><span class="hidden-tablet"> Categoty Post</span></a></li>               
+            <li><a href="admin.php?controller=post_categories"><i class="icon-edit"></i><span class="hidden-tablet"> Categoty Post</span></a></li> 
+            <li><a href="admin.php?controller=users"><i class="icon-dashboard"></i><span class="hidden-tablet"> Users</span></a></li>              
         </ul>
     </div>
 </div>

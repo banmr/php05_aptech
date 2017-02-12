@@ -4,6 +4,8 @@
 
 require_once('config/config.php');
 require_once('components/functions.php');
+require_once('components/class.phpmailer.php');
+require_once('components/class.smtp.php');
 // require_once('frontend/models/model.php');
 // require_once('frontend/models/cart.php');
 

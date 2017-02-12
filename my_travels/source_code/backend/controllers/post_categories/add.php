@@ -18,7 +18,7 @@ if(get_server_post()) { //xũ lý giá trị tồn tại, xữ lý form
 
 	if(empty($errors)){ // Kiểm tra nếu không có lổi xãy ra thì chèn vào csdl
 		$q = "INSERT INTO post_categories (users_id, name, position, created) VALUES (1, '{$cat_post_name}', '$position', NOW())";
-		$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($dbc));
+		$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_error($dbc));
 
 		if(mysqli_affected_rows($dbc) == 1){
 			$messages = "<div class='alert alert-success'><strong>Well done!</strong> The category post added successfully.</div>" ;

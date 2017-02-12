@@ -19,10 +19,21 @@ if(!isset($_SESSION['name'])) {
     $action = 'login';
 }
 
+if(isset($_GET['action']) && $_GET['action'] == 'forgot') {
+	$controller = 'index';
+	$_GET['action'] == 'forgot';
+    $action = 'forgot';
+}
+
+
 //gan' bien admin
 $admin = array();
 if(isset($_SESSION['name'])) {
 	$admin['name'] = $_SESSION['name'];
+}
+
+if(isset($_SESSION['id'])) {
+	$admin['id'] = $_SESSION['id'];
 }
 
 

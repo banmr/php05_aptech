@@ -1,10 +1,10 @@
 <?php
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') { //xu lý giá tr? t?n t?i, x? lý form
+if($_SERVER['REQUEST_METHOD'] == 'POST') { //xu lÃ½ giÃ¡ tr? t?n t?i, x? lÃ½ form
     $errors = array();
     
     // ch?ng spam cho contact
-    // array_map: Tr? v? m?t m?ng ch?a t?t c? ph?n t? c?a m?ng $_POST sau khi dã áp d?ng hàm clearemail t?i m?i ph?n t? dó.
+    // array_map: Tr? v? m?t m?ng ch?a t?t c? ph?n t? c?a m?ng $_POST sau khi dÃ£ Ã¡p d?ng hÃ m clearemail t?i m?i ph?n t? dÃ³.
     $clean = array_map('clearemail', $_POST);
 
     if(empty($clean['name'])){
@@ -35,7 +35,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xu lý giá tr? t?n t?i, x? lý form
             $messages = "<div class='alert alert-error'><strong>Error!</strong> Sorry, your email cound not be sent.</div>";
         }
 
-        var_dump($mail_contact);
     } else {
         $messages = "<div class='alert alert-error'><strong>Error!</strong> please fill all the required fields.</div>";
     }

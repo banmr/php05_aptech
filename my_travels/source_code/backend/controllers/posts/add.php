@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') { //xũ lý giá trị tồn tại, x�
 		$now = strtotime("now");
 
 		$q = "INSERT INTO posts (title, content, image, post_category_id, user_id, position, created) VALUES ('{$posts_name}', '{$posts_content}', '$target_file', {$posts_cat}, 1 , $position, $now)";
-		$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_errno($dbc));
+		$r = mysqli_query($dbc, $q) or die ("Query {$q} \n<br> MYSQL error: " . mysqli_error($dbc));
 
 		if(mysqli_affected_rows($dbc) == 1){
 			$messages = "<div class='alert alert-success'><strong>Well done!</strong> The post added successfully.</div>" ;
